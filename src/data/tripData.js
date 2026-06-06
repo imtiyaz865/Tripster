@@ -1,10 +1,10 @@
 export const tripMeta = {
-  title: 'Bangalore Trip',
+  title: 'Mission ReactNexus Trip',
   subtitle: 'July 2026 — Friends Getaway',
   dates: '1 July – 4 July 2026',
   people: 5,
   destination: 'Bengaluru (SBC)',
-  origin: 'Kacheguda, Hyderabad',
+  origin: 'Hyderabad',
   maxBudgetPerPerson: 7000,
   airbnbUrl:
     'https://www.airbnb.co.in/rooms/1116327230290312702?adults=5&check_in=2026-07-01&check_out=2026-07-04',
