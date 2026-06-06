@@ -1,0 +1,31 @@
+.mouse-follower{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transition: opacity 220ms linear, transform 260ms linear;
+  opacity: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.96) 0%, rgba(239,71,111,0.25) 12%, rgba(6,182,212,0.22) 30%, rgba(124,58,237,0.14) 60%, transparent 70%);
+  box-shadow: 0 8px 36px rgba(124,58,237,0.18), 0 0 26px rgba(6,182,212,0.16), inset 0 0 8px rgba(255,255,255,0.06);
+  mix-blend-mode: screen;
+  will-change: transform;
+  backdrop-filter: blur(2px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes follower-pulse {
+    0% { transform: translate3d(-50%, -50%, 0) scale(0.9); filter: hue-rotate(0deg); }
+    50% { transform: translate3d(-50%, -50%, 0) scale(1.06); filter: hue-rotate(25deg); }
+    100% { transform: translate3d(-50%, -50%, 0) scale(0.9); filter: hue-rotate(0deg); }
+  }
+  .mouse-follower { animation: follower-pulse 2.6s ease-in-out infinite; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .mouse-follower{ transition: none; animation: none; }
+}

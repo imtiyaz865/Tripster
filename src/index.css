@@ -1,46 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark-only palette and subtle blue gradient — no vibrant colors */
+/* Light theme: white + dark-blue accents */
 :root {
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --nav-height: 64px;
+
+  /* Vibrant premium palette on a rich dark surface */
+  --bg: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent),
+         radial-gradient(800px 400px at 90% 20%, rgba(14,165,233,0.08), transparent),
+         linear-gradient(180deg,#07020a,#081227 60%,#071123 100%);
+  --surface: rgba(6,8,20,0.7);
+  --surface-elevated: rgba(8,10,26,0.8);
+  --surface-glass: rgba(8,10,26,0.6);
+  --text: #f8fbff;
+  --text-muted: #b6c7db;
+  --text-light: #9fb5cf;
+  --border: rgba(255,255,255,0.04);
+  --border-strong: rgba(255,255,255,0.06);
+
+  /* Funky accent colors */
+  --accent-1: #7c3aed; /* electric violet */
+  --accent-2: #06b6d4; /* neon cyan */
+  --accent-3: #ef476f; /* punchy pink */
+  --accent-4: #ffd166; /* warm amber */
+  --accent-5: #06d6a0; /* mint green */
+
+  --violet: var(--accent-1);
+  --violet-light: rgba(124,58,237,0.14);
+  --pink: var(--accent-3);
+  --pink-light: rgba(239,71,111,0.12);
+  --coral: var(--accent-4);
+  --coral-light: rgba(255,209,102,0.10);
+  --cyan: var(--accent-2);
+  --cyan-light: rgba(6,182,212,0.12);
+  --lime: var(--accent-5);
+  --lime-light: rgba(6,214,160,0.10);
+
+  --nav-bg: linear-gradient(180deg, rgba(12,10,20,0.6), rgba(10,12,24,0.7));
+  --nav-pill-bg: rgba(255,255,255,0.03);
+
+  --shadow-soft: 0 10px 40px rgba(33,14,77,0.28);
+  --shadow-card: 0 14px 60px rgba(33,14,77,0.28);
+  --shadow-hover: 0 20px 80px rgba(33,14,77,0.28);
+  --shadow-nav: 0 6px 24px rgba(33,14,77,0.18);
+
+  --chip-cyan-label: var(--accent-2);
+  --chip-coral-label: var(--accent-3);
+  --tag-text: #ffe8d6;
+
+  --accent-solid: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  --hero-bg: linear-gradient(180deg, rgba(124,58,237,0.06), rgba(6,182,212,0.04));
+  --hero-text: var(--text);
+}
+
+/* Dark theme: bright color wheel accents */
+[data-theme='dark'] {
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --nav-height: 64px;
+
+  --bg: linear-gradient(180deg,#020617 0%, #04203a 50%, #061a33 100%);
+  --surface: #071423;
+  --surface-elevated: #0b2030;
+  --surface-glass: rgba(5,10,18,0.85);
+  --text: #e6f0ff;
+  --text-muted: #b6c7db;
+  --text-light: #9fb5cf;
+  --border: rgba(255,255,255,0.04);
+  --border-strong: rgba(255,255,255,0.06);
+
+  /* Bright color wheel accents */
   --violet: #7c3aed;
-  --violet-light: #ede9fe;
+  --violet-light: rgba(124,138,237,0.12);
   --pink: #ec4899;
-  --pink-light: #fce7f3;
+  --pink-light: rgba(236,72,153,0.12);
   --coral: #f97316;
-  --coral-light: #ffedd5;
+  --coral-light: rgba(249,115,22,0.12);
   --cyan: #06b6d4;
-  --cyan-light: #cffafe;
+  --cyan-light: rgba(6,182,212,0.12);
   --lime: #84cc16;
-  --lime-light: #ecfccb;
+  --lime-light: rgba(132,204,22,0.12);
   --yellow: #facc15;
-  --yellow-light: #fef9c3;
+  --yellow-light: rgba(250,204,21,0.12);
 
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --text-light: #94a3b8;
-  --surface: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.72);
-  --border: rgba(15, 23, 42, 0.08);
-  --bg: #faf8ff;
+  --nav-bg: rgba(2,16,36,0.92);
+  --nav-pill-bg: rgba(255,255,255,0.03);
 
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  --shadow-soft: 0 6px 30px rgba(0,0,0,0.6);
+  --shadow-card: 0 10px 40px rgba(0,0,0,0.6);
+  --shadow-hover: 0 18px 60px rgba(0,0,0,0.6);
+  --shadow-nav: 0 6px 24px rgba(0,0,0,0.6);
 
-  --shadow-soft: 0 4px 24px rgba(124, 58, 237, 0.08);
-  --shadow-card: 0 8px 32px rgba(15, 23, 42, 0.06);
-  --shadow-hover: 0 16px 48px rgba(124, 58, 237, 0.14);
+  --chip-cyan-label: var(--cyan);
+  --chip-coral-label: var(--coral);
+  --tag-text: var(--yellow);
 
-  --font: 'Outfit', system-ui, sans-serif;
+  --accent-solid: #3b5870; /* muted blue-gray for dark mode */
+  --hero-bg: var(--surface-elevated);
+  --hero-text: var(--text);
 }
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -50,27 +116,62 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background .3s ease, color .3s ease;
 }
 
-body::before {
+body::before{
   content: '';
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(124, 58, 237, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(236, 72, 153, 0.1), transparent),
-    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(6, 182, 212, 0.08), transparent);
+    radial-gradient(ellipse 60% 35% at 10% -10%, rgba(2,48,80,0.18), transparent),
+    radial-gradient(ellipse 55% 30% at 85% 5%, rgba(4,34,60,0.12), transparent);
   pointer-events: none;
   z-index: 0;
+  transition: opacity .3s ease;
 }
 
-#root {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
+#root { position: relative; z-index:1; min-height:100vh }
+
+::selection { background: var(--violet-light); color: var(--text); }
+
+/* Subtle glow utility and applied glows for cards/buttons */
+.glow-border,
+.card,
+.btn-primary,
+.train-card,
+.day-card,
+.fact-card {
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow:
+    0 8px 26px rgba(5,6,20,0.6),
+    0 0 10px #7c3aed33,
+    0 0 20px #06b6d433;
+  transition: transform .22s ease, box-shadow .22s ease;
 }
 
-::selection {
-  background: var(--violet-light);
-  color: var(--violet);
+.card:hover,
+.btn-primary:hover,
+.train-card:hover,
+.day-card:hover,
+.fact-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 24px 80px rgba(5,6,20,0.6),
+    0 0 36px #7c3aed44,
+    0 0 46px #06b6d433,
+    0 0 18px #ef476f33;
 }
+
+/* Small glowing border accent for important elements */
+.glow-accent {
+  box-shadow: 0 8px 30px rgba(59,88,112,0.08), 0 0 20px var(--violet-light);
+  border: 1px solid rgba(59,88,112,0.08);
+}
+
+/* Reduce glow on very small screens */
+@media (max-width: 640px) {
+  .glow-border, .card, .train-card { box-shadow: 0 6px 14px rgba(11,54,86,0.04); }
+}
+

@@ -7,8 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <title>Mission ReactNexus Trip — July 2026</title>
+    <title>Mission React Nexus Trip — July 2026</title>
     <meta name="description" content="Friends trip itinerary: Hyderabad to Bengaluru, July 1-4 2026" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem('trip-theme');
+        var theme =
+          stored ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

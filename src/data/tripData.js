@@ -1,6 +1,6 @@
 export const tripMeta = {
-  title: 'Mission ReactNexus Trip',
-  subtitle: 'July 2026 — Friends Getaway',
+  title: 'Mission React Nexus Trip',
+  subtitle: 'July 2026 — Community Getaway',
   dates: '1 July – 4 July 2026',
   people: 5,
   destination: 'Bengaluru (SBC)',
